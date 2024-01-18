@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "Micubisi",
+    "model": "L-200",
+    "price": "5600",
+    "vehicleType": "car",
+    "rentalObject": "1",
+    "transType": "Manual",
+    "fuelType": "gasoline",
+    "consumption": "",
+    "doorsNum": "4",
+    "peopleNum": "3",
+    "description": "",
+    "image": "/static/tesla.png",
+    "status": "Available",
+    "counter": 4,
+    "ukupna": 22400,
+    "id": 1
+  }
+]
