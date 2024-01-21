@@ -77,9 +77,9 @@ router.delete("/:id", (req, res) => {
     res.status(500).json({ error: "Internal server error" }); 
    }
 });
-router.get("getById/:id",(req,res)=>{
+router.get("/getById/:id",(req,res)=>{
 	const id = parseInt(req.params.id,10);
-	const user = userService.getById(id);
+	var user = userService.getById(id);
 	if(user!=null){
 		res.status(200).json(user);
 	}else{

@@ -15,11 +15,7 @@ function getAll(){
 	const rentObjects = jsonUtils.jsonReader(filePath);
 	return rentObjects;
 }
-function getObjectVehicles(rentObject){
-	const rentObjects = jsonUtils.jsonReader(filePath);
-	const vehicles = jsonUtils.jsonReader(vehiclesPath);
-	
-}
+
 
 function addNewVehicle(vehicle){
 	const rentalObjectId = vehicle.rentalObject;
@@ -28,7 +24,16 @@ function addNewVehicle(vehicle){
 	object.vehicles.push(vehicle);
 	update(rentalObjectId,object);
 	return object
+}
 
+function deleteVehicleFromObject(vehicleId){
+	const rentObjects = jsonUtils.jsonReader(filePath);
+	rentObjects.forEach(rentObject => {
+    rentObject.vehicles = rentObject.vehicles.filter(vehicle => vehicle.id !== vehicleId);
+    });
+    jsonUtils.saveDataToFile(rentObjects, filePath);
+    console.log(rentObjects)
+    return rentObjects
 }
 
 function update(id, updatedObject) {
@@ -64,5 +69,6 @@ module.exports = {
 	getAll,
 	getById,
 	update,
-	addNewVehicle
+	addNewVehicle,
+	deleteVehicleFromObject
 };

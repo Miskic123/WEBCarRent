@@ -1,6 +1,7 @@
 const jsonUtils = require("../json");
-const commentsFile = require("../datas/comments.json")
+const commentsFile = "./datas/comments.json";
 const comments = jsonUtils.jsonReader(commentsFile);
+
 function create(comment){
 	comment.id = jsonUtils.generateNextId(comments);
 	comments.push(comment);
@@ -11,7 +12,8 @@ function create(comment){
 function removeComment(commentId){
 	const index = comments.findIndex((comment)=>comment.id === commentId)
 	if(index !== -1){
-		return comments.splice(index,1)
+		comments.splice(index,1)
+		jsonUtils.saveDataToFile(comments,commentsFile)
 	} else {
 		return null;
 	}

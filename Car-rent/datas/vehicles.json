@@ -16,5 +16,23 @@
     "counter": 4,
     "ukupna": 22400,
     "id": 1
+  },
+  {
+    "brand": "Audi",
+    "model": "A3",
+    "price": "11000",
+    "vehicleType": "car",
+    "rentalObject": "2",
+    "transType": "Manual",
+    "fuelType": "gasoline",
+    "consumption": "",
+    "doorsNum": "4",
+    "peopleNum": "3",
+    "description": "",
+    "image": "/images/rentCar1.png",
+    "status": "Available",
+    "counter": 4,
+    "ukupna": 22400,
+    "id": 2
   }
 ]

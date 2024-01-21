@@ -14,7 +14,29 @@ function create(vehicle){
 	rentObjectRepo.addNewVehicle(vehicle);
 	return vehicle;
 }
-
+function update(id, updatedVehicle) {
+  const vehicles = jsonUtils.jsonReader(vehiclesFile);
+  const index = vehicles.findIndex((vehicle) => vehicle.id === parseInt(id));
+  console.log("Updating Vehicle with ID:", id);
+  vehicles[index] = updatedVehicle;
+  jsonUtils.saveDataToFile(vehicles, vehiclesFile);
+  return vehicles[index];
+}
+function removeVehicle(id){
+	const vehicles = jsonUtils.jsonReader(vehiclesFile);
+	const index = vehicles.findIndex((vehicle)=>vehicle.id === id)
+	if(index !== -1){
+	   vehicles.splice(index,1)	;
+	   jsonUtils.saveDataToFile(vehicles,vehiclesFile) ;
+	} else {
+		return null;
+	}
+}
+function getById(id){
+	const vehicles = jsonUtils.jsonReader(vehiclesFile);
+	const index = vehicles.findIndex((vehicle)=>vehicle.id === id)
+	return vehicles[index];
+}
 module.exports = {
-	create
+	create,update,removeVehicle,getById
 }

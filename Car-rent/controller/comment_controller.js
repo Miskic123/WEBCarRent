@@ -13,17 +13,16 @@ router.post("/",(req,res)=>{
 		res.status(500).json({error:"Comment failed to create"});
 	}
 });
-router.delete("/deleteComment",(req,res)=>{
+router.delete("/deleteComment/:id",(req,res)=>{
 	const id = parseInt(req.params.id,10)
 	try{
 		var comment = commentService.getById(id);
 		if(comment){
 		commentService.removeComment(id);
 		res.status(200).json(comment)
-		} else {
-			res.status(500).json({error:"failed"})
-		}
+		} 
 	}catch(error){
-		error:"Comment failed to remove"
+		res.status(500).json({error:"Comment failed to remove"});
 	}
 })
+module.exports = router;

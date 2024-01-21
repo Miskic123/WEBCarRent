@@ -3,26 +3,26 @@
     "name": "Ariss Rental",
     "vehicles": [
       {
-        "brand": "Tesla",
-        "model": "A Plaid",
+        "brand": "Micubisi",
+        "model": "L-200",
         "price": "5600",
         "vehicleType": "car",
         "rentalObject": "1",
         "transType": "Manual",
         "fuelType": "gasoline",
-        "consumption": "10",
+        "consumption": "",
         "doorsNum": "4",
         "peopleNum": "3",
         "description": "",
-        "image": "/static/tesla.png",
+        "image": "",
         "status": "Available",
-        "id": 1,
-        "counter": 1,
-        "ukupna": "5600"
+        "counter": 4,
+        "ukupna": 22400,
+        "id": 1
       }
     ],
     "workHoursStart": "08:00",
-    "workHoursEnd": "18:00",
+    "workHoursEnd": "23:00",
     "status": true,
     "location": {
       "adress": "Durdja Brankovica 9, Novi Sad",
@@ -30,7 +30,59 @@
       "longitude": 19.837041421519313
     },
     "grade": "4.5",
-    "imagePath": "/static/rental.jpg",
+    "imagePath": "rentCar2.jpg",
     "id": 1
+  },
+  {
+    "name": "Paja Rentalis",
+    "vehicles": [
+      {
+        "brand": "Micubisi",
+        "model": "L-200",
+        "price": "5600",
+        "vehicleType": "car",
+        "rentalObject": "1",
+        "transType": "Manual",
+        "fuelType": "gasoline",
+        "consumption": "",
+        "doorsNum": "4",
+        "peopleNum": "3",
+        "description": "",
+        "image": "",
+        "status": "Available",
+        "counter": 4,
+        "ukupna": 22400,
+        "id": 1
+      },
+      {
+        "brand": "Audi",
+        "model": "A3",
+        "price": "11000",
+        "vehicleType": "car",
+        "rentalObject": "2",
+        "transType": "Manual",
+        "fuelType": "gasoline",
+        "consumption": "",
+        "doorsNum": "4",
+        "peopleNum": "3",
+        "description": "",
+        "image": "",
+        "status": "Available",
+        "counter": 4,
+        "ukupna": 22400,
+        "id": 2
+      }
+    ],
+    "workHoursStart": "10:00",
+    "workHoursEnd": "21:00",
+    "status": true,
+    "location": {
+      "adress": "Durdja Brankovica 9, Novi Sad",
+      "latitude": 45.26015990600431,
+      "longitude": 19.837041421519313
+    },
+    "grade": "5.0",
+    "imagePath": "/rentCar1.jpg",
+    "id": 2
   }
 ]

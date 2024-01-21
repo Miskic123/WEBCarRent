@@ -1,0 +1,11 @@
+[
+  {
+    "idUser": 8,
+    "idRental": 1,
+    "text": "Zadovoljna sam uslugom!",
+    "grade": 3,
+    "isApproved": true,
+    "isSeen": true,
+    "id": 1
+  }
+]
