@@ -5,31 +5,40 @@
     <div class="home-container">
       <h2>Welcome to Our Website!</h2>
 
-      <div class="search-bar">
-        <input v-model="searchQuery" placeholder="Search by name, location, or grade">
-      </div>
+      <div class="search-and-filter">
+        <div class="search-bar">
+          <input v-model="searchQuery" placeholder="Search by name, location, or grade">
+        </div>
 
-      <div class="sort-options">
-        <label>Sort by:</label>
-        <select v-model="sortOption" @change="sortRentObjects">
-          <option value="nameAsc">Name (A-Z)</option>
-          <option value="nameDesc">Name (Z-A)</option>
-          <option value="locationAsc">Location (A-Z)</option>
-          <option value="locationDesc">Location (Z-A)</option>
-          <option value="gradeAsc">Grade (Low to High)</option>
-          <option value="gradeDesc">Grade (High to Low)</option>
-        </select>
+        <div class="sort-options">
+          <label>Sort by:</label>
+          <select v-model="sortOption" @change="sortRentObjects">
+            <option value="nameAsc">Name (A-Z)</option>
+            <option value="nameDesc">Name (Z-A)</option>
+            <option value="locationAsc">Location (A-Z)</option>
+            <option value="locationDesc">Location (Z-A)</option>
+            <option value="gradeAsc">Grade (Low to High)</option>
+            <option value="gradeDesc">Grade (High to Low)</option>
+          </select>
+        </div>
       </div>
 
       <div class="rent-objects-container">
-        <div v-for="rentObject in filteredRentObjects" :key="rentObject.id" class="rent-object">
-          <img :src="getImagePath(rentObject.imagePath)" alt="Car Image" class="object-logo">
-          <div class="object-info">
-            <h3>{{ rentObject.name }}</h3>
-            <p>{{ rentObject.location.adress }}</p>
-            <p>Grade: {{ rentObject.grade }}</p>
+        <router-link
+          v-for="rentObject in filteredRentObjects"
+          :key="rentObject.id"
+          :to="{ name: 'RentObject', params: { id: rentObject.id } }"
+          class="rent-object-link"
+        >
+          <div class="rent-object">
+            <img :src="getImagePath(rentObject.imagePath)" alt="Car Image" class="object-logo">
+            <div class="object-info">
+              <h3>{{ rentObject.name }}</h3>
+              <p>{{ rentObject.location.adress }}</p>
+              <p>Grade: {{ rentObject.grade }}</p>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -47,7 +56,7 @@ export default {
     return {
       rentObjects: [],
       searchQuery: "",
-      sortOption: "nameAsc", // Default sorting option
+      sortOption: "nameAsc",
     };
   },
   computed: {
@@ -79,6 +88,7 @@ export default {
         rentObject.grade.toLowerCase().includes(query)
       );
     },
+
     sortRentObjectsArray(objects) {
       const sortOption = this.sortOption;
       return objects.sort((a, b) => {
@@ -107,15 +117,9 @@ export default {
 };
 </script>
 
-
-
-
-
-
-
 <style scoped>
 .home-container {
-  background-image: url('../assets/background.jpg'); 
+  background-image: url('../assets/background.jpg');
   background-size: cover;
   background-position: top;
   color: #ffffff;
@@ -129,32 +133,37 @@ export default {
   align-items: center;
 }
 
-.search-bar {
+.search-and-filter {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20px;
+  width: 100%;
+  align-items: center;
+  
 }
 
-.sort-options {
-  margin-bottom: 20px;
-}
-
-.sort-options label {
+.search-bar input{
+  margin-left: 335px;
+  margin-bottom: auto;
+  padding: 10px;
+  font-size: 16px;
   margin-right: 10px;
 }
-
 .sort-options select {
-  padding: 5px;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
 }
+.sort-options{
+  margin-right: 900px;
 
-.home-container h2 {
-  font-size: 2rem;
-  font-weight: bold;
 }
-
 .rent-objects-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-evenly;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .rent-object {
@@ -162,15 +171,17 @@ export default {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  max-width: 300px;
+  width: 300px;
+  margin: 10px;
 }
 
 .object-logo {
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 10px;
-  
 }
 
 .object-info h3 {
@@ -180,5 +191,19 @@ export default {
 
 .object-info p {
   margin: 5px 0;
+}
+
+.rent-object-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.rent-object-link:hover {
+  color: #333;
+}
+
+.rent-object-link {
+  margin: 10px;
 }
 </style>

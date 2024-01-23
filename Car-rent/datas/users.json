@@ -272,7 +272,7 @@
     "basket": null,
     "role": "Manager",
     "pastRentals": null,
-    "rentalObject": null,
+    "rentalObject": 4,
     "points": 5.761654135338346,
     "counter": 0,
     "isBlocked": true,

@@ -62,6 +62,22 @@ router.put("/:id",(req,res)=>{
 		}
 });
 
+router.put('/ManagerUpdate/:id', (req, res) => {
+  const managerId = parseInt(req.params.id);
+  const  {rentObjectId}  = req.body;
+
+  if (!rentObjectId) {
+    return res.status(400).json({ error: 'Missing rentObjectId in the request body.' });
+  }
+
+  try  {
+	userService.updateManager(managerId,rentObjectId);
+    res.status(200).json({ message: 'Manager updated successfully.' });
+  } catch {
+    res.status(500).json({ error: 'Manager not found.' });
+  }
+});
+
 router.delete("/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
    try{
@@ -77,6 +93,21 @@ router.delete("/:id", (req, res) => {
     res.status(500).json({ error: "Internal server error" }); 
    }
 });
+
+router.put("/update/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	const updatedUser = req.body;
+	try{
+		userService.update(id,updatedUser);
+		res.status(200).json({message:"User updated successfully"});
+		}
+	catch(error){
+		res.status(500).json({
+			error:"Failed to update user"
+		})
+	}
+	
+})
 router.get("/getById/:id",(req,res)=>{
 	const id = parseInt(req.params.id,10);
 	var user = userService.getById(id);

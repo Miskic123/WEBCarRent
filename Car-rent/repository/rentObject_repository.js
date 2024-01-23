@@ -1,6 +1,7 @@
 const jsonUtils = require("../json");
 const filePath = "./datas/rentObjects.json";
 const vehiclesPath = "./datas/vehicles.json"
+const userRep = require("../repository/user_repository")
 
 function create(rentObject){
 	const rentObjects = jsonUtils.jsonReader(filePath);

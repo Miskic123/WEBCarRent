@@ -14,12 +14,31 @@ function create(user){
 function update(userId, updatedUser) {
   const users = jsonUtils.jsonReader(filePath);
   const index = users.findIndex((user) => user.id === userId);
+  
   users[index] = updatedUser;
   jsonUtils.saveDataToFile(users, filePath);
   return users[index];
   
 }
 
+function updateManager(managerId, rentObjectId) {
+  const users = jsonUtils.jsonReader(filePath);
+  const index = users.findIndex((user) => user.id === managerId);
+  console.log(index)
+
+  if (index !== -1) {
+    const updatedManager = users[index];
+    updatedManager.rentalObject = rentObjectId;
+    users[index] = updatedManager;
+
+    jsonUtils.saveDataToFile(users, filePath);
+    console.log(updatedManager)
+
+    return updatedManager;
+  } else {
+    return null;
+  }
+}
 function deleteUser(userId) {
   const users = jsonUtils.jsonReader(filePath);
   const index = users.findIndex((user) => user.id === userId);
@@ -62,5 +81,6 @@ module.exports = {
 	update,
 	getById,
 	getByUsername,
-	getFreeManagers
+	getFreeManagers,
+	updateManager
 };

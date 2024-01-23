@@ -6,6 +6,9 @@ function create(user){
 function update(userId,updatedUser){
 	userRepository.update(userId,updatedUser);
 }
+function updateManager(managerId,rentObjectId){
+	userRepository.updateManager(managerId,rentObjectId);
+}
 function deleteUser(userId){
 	userRepository.deleteUser(userId);
 }
@@ -24,5 +27,6 @@ module.exports= {
 	deleteUser,
 	getById,
 	getByUsername,
-	getFreeManagers
+	getFreeManagers,
+	updateManager
 };

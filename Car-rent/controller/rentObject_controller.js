@@ -10,8 +10,8 @@ router.use(express.json());
 router.post("/", (req, res) => {
   const rentObject = req.body;
   try {
-    rentObjectService.create(rentObject);
-    res.status(200).json({ message: "Object created successfully" });
+    const rentObject1 = rentObjectService.create(rentObject);
+    res.status(200).json({ message: "Object created successfully" ,rentObject1});
   } catch (error) {
     res.status(500).json({ error: "Failed to create object" });
   }

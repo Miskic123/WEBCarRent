@@ -1,0 +1,222 @@
+<template>
+    <div>
+      <navbar></navbar>
+      <div class="main-container">
+        <div class="register-form">
+          <h2>Create Manager</h2>
+          <form>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                v-model="form.username"
+                :class="['custom-input', { error: !form.username }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                v-model="form.password"
+                :class="['custom-input', { error: !form.password }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="new_password">Confirm password</label>
+              <input
+                type="password"
+                id="new_password"
+                v-model="form.new_password"
+                :class="['custom-input', { error: !form.new_password }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                v-model="form.name"
+                :class="['custom-input', { error: !form.name }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="surname">Surname</label>
+              <input
+                type="text"
+                id="surname"
+                v-model="form.surname"
+                :class="['custom-input', { error: !form.surname }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select
+                id="gender"
+                v-model="form.gender"
+                :class="['custom-input', { error: !form.gender }]"
+                required
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="birthday">Birthday</label>
+              <input
+                type="date"
+                id="birthday"
+                v-model="form.birthday"
+                :class="['custom-input', { error: !form.birthday }]"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" v-on:click.prevent="submitForm()">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import axios from "axios";
+  import Navbar from "./Navbar.vue";
+  
+  export default {
+    components: {
+      navbar:Navbar
+    },
+    data() {
+      return {
+        form: {
+          username: "",
+          password: "",
+          new_password: "",
+          name: "",
+          surname: "",
+          gender: "",
+          birthday: "",
+          lastCancellationDate :"",
+          basket: null,
+          role: "Manager",
+          pastRentals: null,
+          rentalObject: null,
+          points: null,
+          counter:null,
+          isBlocked:false,
+          buyerType: {}
+        }
+      };
+    },
+    methods: {
+      submitForm() {
+        if (this.form.password !== this.form.new_password) {
+          this.$toastr.e("Passwords do not match!");
+          return;
+        }
+  
+        if (!this.isFormValid()) {
+          this.$toastr.e("Please fill in all fields");
+          return;
+        }
+        axios
+          .post("http://localhost:8081/users", this.form)
+          .then(() => {
+            this.$toastr.s("Successfully registered!");
+            this.$router.push("/login");
+          })
+          .catch((error) => {
+            if(error.response && error.response.status === 409){
+            this.$toastr.e("This username already exists!");
+            }
+          });
+      },
+  
+      isFormValid() {
+        return (
+          this.form.username &&
+          this.form.password &&
+          this.form.new_password &&
+          this.form.name &&
+          this.form.surname &&
+          this.form.gender &&
+          this.form.birthday
+        );
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .main-container {
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px;
+  }
+  .register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    align-items: center;
+  }
+  
+  .register-form h2 {
+    text-align: center;
+  }
+  
+  .register-form .form-group {
+    margin-bottom: 20px;
+    width: 370px;
+  }
+  
+  .register-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .custom-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+  }
+  
+  .error {
+    border-color: red;
+  }
+  
+  .register-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: black;
+    color: #fff;
+    border: none;
+  }
+  
+  .register-form button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+  }
+  </style>
+  
