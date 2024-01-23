@@ -118,6 +118,16 @@ router.get("/getById/:id",(req,res)=>{
 	}
 });
 
+router.get("/getRentObjectVehicles/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	const vehicles = userService.getRentObjectVehicles(id);
+	if(vehicles!=null){
+		res.status(200).json(vehicles);
+	}else{
+		res.status(404).json({error:"User not found"});
+	}
+});
+
 router.get("/freeManagers", (req,res)=>{
 	const freeMaganers = userService.getFreeManagers();
 	if(freeMaganers!=null){

@@ -1,6 +1,7 @@
 const jsonUtils = require("../json");
 const filePath = "./datas/users.json";
-
+const rentObjectRep = require("../repository/rentObject_repository");
+const objectsPath = "./datas/rentObjects.json"
 
 function create(user){
 	
@@ -25,6 +26,7 @@ function updateManager(managerId, rentObjectId) {
   const users = jsonUtils.jsonReader(filePath);
   const index = users.findIndex((user) => user.id === managerId);
   console.log(index)
+  
 
   if (index !== -1) {
     const updatedManager = users[index];
@@ -61,6 +63,16 @@ function getById(userId){
     index =  users.findIndex((user) => user.id === parseInt(userId));
 	return users[index];
 }
+function getRentObjectVehicles(userId){
+	const user = getById(userId);
+	console.log(user.rentalObject);
+	const rentObjects = jsonUtils.jsonReader(objectsPath);
+    index =  rentObjects.findIndex((rentObject) =>rentObject.id === user.rentalObject);
+    const rentObject = rentObjects[index] 
+    return rentObject.vehicles;
+	
+	
+}
 function getByUsername(userName){
 	const users = jsonUtils.jsonReader(filePath);
     index =  users.findIndex((user) => user.username === userName);
@@ -82,5 +94,7 @@ module.exports = {
 	getById,
 	getByUsername,
 	getFreeManagers,
-	updateManager
+	updateManager,
+	getRentObjectVehicles
+	
 };

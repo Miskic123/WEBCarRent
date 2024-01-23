@@ -10,7 +10,7 @@ router.post("/",(req,res)=>{
 		orderService.create(order)
 		res.status(200).json(order)
 	}catch(error){
-		res.status(500).json({error:"Comment failed to create"});
+		res.status(500).json({error:"Order failed to create"});
 	}
 });
 router.delete("/deleteOrder/:id",(req,res)=>{
@@ -22,7 +22,24 @@ router.delete("/deleteOrder/:id",(req,res)=>{
 		res.status(200).json(order)
 		} 
 	}catch(error){
-		res.status(500).json({error:"Comment failed to remove"});
+		res.status(500).json({error:"Order failed to remove"});
 	}
 })
+router.get("/getAll",(req,res)=>{
+	res.json(orderService.getAll());
+})
+router.get("/getByUserId/:userId",(req,res)=>{
+	const userId = parseInt(req.params.userId,10);
+	try{
+		const orders = orderService.getByUserId(userId);
+		res.status(200).json(orders)
+	}catch(error){
+		res.status(500).json({error:"Failed"})
+	}
+})
+router.get("/getAllOrdersByManagerRentObject/:managerId",(req,res)=>{
+	const managerId = parseInt(req.params.managerId,10);
+	res.json(orderService.getAllOrdersByManager(managerId));
+})
+
 module.exports = router;

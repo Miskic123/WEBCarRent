@@ -9,6 +9,15 @@ function remove(orderId){
 function getById(orderId){
 	return orderRep.getById(orderId);
 }
+function getAll(){
+	return orderRep.getAll();
+}
+function getByUserId(userId){
+	return orderRep.getByUserId(userId);
+}
+function getAllOrdersByManager(managerId){
+	return orderRep.getAllOrdersByManager(managerId);
+}
 module.exports = {
-	create,remove,getById
+	create,remove,getById,getAll,getByUserId,getAllOrdersByManager
 }

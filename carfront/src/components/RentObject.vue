@@ -172,7 +172,7 @@ export default {
 }
 
 .vehicle-list h3 {
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 

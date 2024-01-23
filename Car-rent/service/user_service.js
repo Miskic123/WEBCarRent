@@ -21,6 +21,9 @@ function getByUsername(username){
 function getFreeManagers(){
 	return userRepository.getFreeManagers();
 }
+function getRentObjectVehicles(userId){
+	return userRepository.getRentObjectVehicles(userId);
+}
 module.exports= {
 	create,
 	update,
@@ -28,5 +31,6 @@ module.exports= {
 	getById,
 	getByUsername,
 	getFreeManagers,
-	updateManager
+	updateManager,
+	getRentObjectVehicles
 };

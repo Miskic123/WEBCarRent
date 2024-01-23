@@ -3,9 +3,9 @@
     "name": "Ariss Rental",
     "vehicles": [
       {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
+        "brand": "Audi",
+        "model": "A3",
+        "price": "11000",
         "vehicleType": "car",
         "rentalObject": "1",
         "transType": "Manual",
@@ -18,27 +18,8 @@
         "status": "Available",
         "counter": 4,
         "ukupna": 22400,
-        "id": 1
-      },
-      {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
-        "vehicleType": "car",
-        "rentalObject": "1",
-        "transType": "Manual",
-        "fuelType": "gasoline",
-        "consumption": "",
-        "doorsNum": "4",
-        "peopleNum": "3",
-        "description": "",
-        "image": "a8.jpg",
-        "status": "Available",
-        "counter": 4,
-        "ukupna": 22400,
-        "id": 1
+        "id": 5
       }
-      
     ],
     "workHoursStart": "08:00",
     "workHoursEnd": "13:00",
@@ -56,76 +37,55 @@
     "name": "Misko Rental",
     "vehicles": [
       {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
+        "brand": "Fiat",
+        "model": "Grande punto",
+        "price": "11000",
         "vehicleType": "car",
-        "rentalObject": "1",
+        "rentalObject": "2",
         "transType": "Manual",
         "fuelType": "gasoline",
         "consumption": "",
         "doorsNum": "4",
         "peopleNum": "3",
         "description": "",
-        "image": "a8.jpg",
+        "image": "punto.jpg",
         "status": "Available",
         "counter": 4,
         "ukupna": 22400,
-        "id": 1
+        "id": 6
       },
       {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
+        "brand": "Volksvagen",
+        "model": "Golf-7",
+        "price": "11000",
         "vehicleType": "car",
-        "rentalObject": "1",
+        "rentalObject": "2",
         "transType": "Manual",
         "fuelType": "gasoline",
         "consumption": "",
         "doorsNum": "4",
         "peopleNum": "3",
         "description": "",
-        "image": "a8.jpg",
+        "image": "golf7.jpg",
         "status": "Available",
         "counter": 4,
         "ukupna": 22400,
-        "id": 1
+        "id": 7
       },
       {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "12000",
         "vehicleType": "car",
-        "rentalObject": "1",
-        "transType": "Manual",
-        "fuelType": "gasoline",
-        "consumption": "",
-        "doorsNum": "4",
-        "peopleNum": "3",
-        "description": "",
-        "image": "a8.jpg",
+        "rentalObject": 2,
+        "transType": "automatic",
+        "fuelType": "petrol",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "Nice car",
+        "image": "/astra.jpg",
         "status": "Available",
-        "counter": 4,
-        "ukupna": 22400,
-        "id": 1
-      },
-      {
-        "brand": "Micubisi",
-        "model": "L-200",
-        "price": "5600",
-        "vehicleType": "car",
-        "rentalObject": "1",
-        "transType": "Manual",
-        "fuelType": "gasoline",
-        "consumption": "",
-        "doorsNum": "4",
-        "peopleNum": "3",
-        "description": "",
-        "image": "a8.jpg",
-        "status": "Available",
-        "counter": 4,
-        "ukupna": 22400,
-        "id": 1
+        "id": 8
       }
     ],
     "workHoursStart": "08:00",
@@ -140,6 +100,4 @@
     "imagePath": "rentCar1.jpg",
     "id": 2
   }
-  
-  
 ]

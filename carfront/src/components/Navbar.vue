@@ -1,6 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar-item">
+      <template>
+        <router-link to="/" class = "navbar-item">Home</router-link>
+      </template>
       <template v-if="isLoggedIn && userRole === 'Administrator'">
         <router-link to="/" class = "navbar-item">Home</router-link>
         <router-link to="/userinfo" class="navbar-item">UserInfo</router-link>
@@ -9,6 +12,13 @@
       </template>
       <template v-if="isLoggedIn && userRole === 'Buyer'">
         <router-link to="/userinfo" class="navbar-item">UserInfo</router-link>
+        <router-link to="/buyerOrders" class="navbar-item">Orders</router-link>
+      </template>
+      <template v-if="isLoggedIn && userRole === 'Manager'">
+        <router-link to="/" class = "navbar-item">Home</router-link>
+        <router-link to="/userinfo" class="navbar-item">UserInfo</router-link>
+        <router-link to="/managersVehicles" class="navbar-item">Vehicles</router-link>
+
       </template>
     </div>
     <div class="navbar-end">

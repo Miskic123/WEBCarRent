@@ -1,8 +1,8 @@
 [
   {
-    "brand": "Micubisi",
-    "model": "L-200",
-    "price": "5600",
+    "brand": "Audi",
+    "model": "A3",
+    "price": "11000",
     "vehicleType": "car",
     "rentalObject": "1",
     "transType": "Manual",
@@ -11,15 +11,15 @@
     "doorsNum": "4",
     "peopleNum": "3",
     "description": "",
-    "image": "/static/tesla.png",
+    "image": "a8.jpg",
     "status": "Available",
     "counter": 4,
     "ukupna": 22400,
-    "id": 1
+    "id": 5
   },
   {
-    "brand": "Audi",
-    "model": "A3",
+    "brand": "Fiat",
+    "model": "Grande punto",
     "price": "11000",
     "vehicleType": "car",
     "rentalObject": "2",
@@ -29,10 +29,43 @@
     "doorsNum": "4",
     "peopleNum": "3",
     "description": "",
-    "image": "/images/rentCar1.png",
+    "image": "punto.jpg",
     "status": "Available",
     "counter": 4,
     "ukupna": 22400,
-    "id": 2
+    "id": 6
+  },
+  {
+    "brand": "Volksvagen",
+    "model": "Golf-7",
+    "price": "11000",
+    "vehicleType": "car",
+    "rentalObject": "2",
+    "transType": "Manual",
+    "fuelType": "gasoline",
+    "consumption": "",
+    "doorsNum": "4",
+    "peopleNum": "3",
+    "description": "",
+    "image": "golf7.jpg",
+    "status": "Available",
+    "counter": 4,
+    "ukupna": 22400,
+    "id": 7
+  },
+  {
+    "brand": "Opel",
+    "model": "Astra",
+    "price": "12000",
+    "vehicleType": "car",
+    "rentalObject": 2,
+    "transType": "automatic",
+    "fuelType": "petrol",
+    "doorsNum": "5",
+    "peopleNum": "5",
+    "description": "Nice car",
+    "image": "/astra.jpg",
+    "status": "Available",
+    "id": 8
   }
 ]
