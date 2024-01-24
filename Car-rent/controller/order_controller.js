@@ -37,6 +37,15 @@ router.get("/getByUserId/:userId",(req,res)=>{
 		res.status(500).json({error:"Failed"})
 	}
 })
+router.get("/getByManagerId/:userId",(req,res)=>{
+	const userId = parseInt(req.params.userId,10);
+	try{
+		const orders = orderService.getManagersOrders(userId);
+		res.status(200).json(orders)
+	}catch(error){
+		res.status(500).json({error:"Failed"})
+	}
+})
 router.get("/getAllOrdersByManagerRentObject/:managerId",(req,res)=>{
 	const managerId = parseInt(req.params.managerId,10);
 	res.json(orderService.getAllOrdersByManager(managerId));
@@ -60,5 +69,50 @@ router.get('/freeVehicles', (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+router.put("/approveOrder/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10)
+	try{
+		const order = orderService.ApproveOrder(id);
+		res.status(200).json(order);
+	}catch(error){
+		res.status(500).json({error:"Failed"});
+	}
+});
+
+router.put("/update/:id",(req,res)=>{
+	const orderId = parseInt(req.params.id,10);
+	const updatedOrder = req.body;
+	try{
+		const order = orderService.getById(orderId);
+		if(order){
+			const updatedData = orderService.update(orderId,updatedOrder);
+
+			res.status(200).json(updatedData);
+		}else{
+			res.status(404).json({error:"order not found"});
+			}
+		}catch(error){
+			 res.status(500).json({ error: "Internal server error order" }); 
+		}
+});
+router.put("/rejectOrder/:id/:rejectionReason",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	const reason = req.params.rejectionReason;
+	try{
+		const order = orderService.RejectOrder(id,reason);
+		res.status(200).json(order);
+	}catch(error){
+		res.status(500).json({error:"Failed"});
+	}
+})
+router.put("/cancelOrder/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	try{
+		const order = orderService.CancelOrder(id);
+		res.status(200).json(order);
+	}catch(error){
+		res.status(500).json({error:"Failed"});
+	}
+})
 
 module.exports = router;

@@ -2,6 +2,8 @@ const jsonUtils = require("../json");
 const filePath = "./datas/rentObjects.json";
 const vehiclesPath = "./datas/vehicles.json"
 const userRep = require("../repository/user_repository")
+const commentsFile = "./datas/comments.json"
+const comments = jsonUtils.jsonReader(commentsFile)
 
 function create(rentObject){
 	const rentObjects = jsonUtils.jsonReader(filePath);
@@ -10,6 +12,12 @@ function create(rentObject){
 	jsonUtils.saveDataToFile(rentObjects,filePath)
 	return rentObject;
 	
+}
+function getAllComments(rentObjectId){
+	const rentComments = comments.filter((comment) => {
+    return comment.idRental === rentObjectId;
+  	});
+  	return rentComments
 }
 
 function getAll(){
@@ -71,5 +79,6 @@ module.exports = {
 	getById,
 	update,
 	addNewVehicle,
-	deleteVehicleFromObject
+	deleteVehicleFromObject,
+	getAllComments
 };

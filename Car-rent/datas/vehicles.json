@@ -1,35 +1,34 @@
 [
   {
     "vehicle": {
-      "brand": "Opel",
-      "model": "Astra",
-      "price": "1200",
+      "brand": "Volksvagen",
+      "model": "Golf-7",
+      "price": "12000",
       "vehicleType": "car",
       "rentalObject": 1,
       "transType": "manual",
-      "fuelType": "hybrid",
+      "fuelType": "petrol",
       "doorsNum": "5",
       "peopleNum": "5",
-      "description": "Jedva da ide",
-      "image": "/astra.jpg",
+      "description": "dobar nema greske",
+      "image": "/golf7.jpg",
       "status": "Available",
-      "id": 2
-    },
-    "image": "/astra.jpg"
+      "id": 1
+    }
   },
   {
-    "brand": "Volksvagen",
-    "model": "Golf7",
-    "price": "12000",
-    "vehicleType": "car",
+    "brand": "Opel",
+    "model": "Astra",
+    "price": "2000",
+    "vehicleType": "truck",
     "rentalObject": 1,
     "transType": "automatic",
-    "fuelType": "diesel",
+    "fuelType": "electric",
     "doorsNum": "5",
     "peopleNum": "5",
-    "description": "odlican",
-    "image": "/golf7.jpg",
+    "description": "nema greske",
+    "image": "/astra.jpg",
     "status": "Available",
-    "id": 3
+    "id": 1
   }
 ]

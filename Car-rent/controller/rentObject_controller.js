@@ -26,6 +26,10 @@ router.get("/:startDate/:endDate",(req,res)=>{
 router.get("/AllObjects",(req,res)=>{
 	res.json(rentObjectService.getAll());
 });
+router.get("/getRentComments/comments/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	res.json(rentObjectService.getRentComments(id));
+});
 
 router.put("/update/:id",(req,res)=>{
 	const id = parseInt(req.params.id,10);

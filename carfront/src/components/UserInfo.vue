@@ -71,7 +71,7 @@
   
   <script>
   import axios from "axios";
-  import Navbar from "./Navbar.vue"; // Adjust the path as needed
+  import Navbar from "./Navbar.vue"; 
   
   export default {
     components: {

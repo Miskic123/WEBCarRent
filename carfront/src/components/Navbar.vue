@@ -18,6 +18,7 @@
       <template v-if="isLoggedIn && userRole === 'Manager'">
         <router-link to="/userinfo" class="navbar-item">UserInfo</router-link>
         <router-link to="/managersVehicles" class="navbar-item">Vehicles</router-link>
+        <router-link to="/managersOrders" class="navbar-item">Object orders</router-link>
 
       </template>
     </div>

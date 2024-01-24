@@ -6,6 +6,9 @@ function create (order){
 function remove(orderId){
 	return orderRep.removeOrder(orderId);
 }
+function update(orderId,updatedOrder){
+	return orderRep.update(orderId,updatedOrder);
+}
 function getById(orderId){
 	return orderRep.getById(orderId);
 }
@@ -21,6 +24,18 @@ function getAllOrdersByManager(managerId){
 function getFilteredVehicles(rental, startDate, endDate) {
   return orderRep.getFreeVehicles(rental, startDate, endDate);
 }
+function ApproveOrder(orderId){
+	return orderRep.ApproveOrder(orderId);
+}
+function RejectOrder(orderId,rejectionReason){
+	return orderRep.RejectOrder(orderId,rejectionReason);
+}
+function CancelOrder(orderId){
+	return orderRep.CancelOrder(orderId);
+}
+function getManagersOrders(managerId){
+	return orderRep.getManagersOrders(managerId);
+}
 module.exports = {
-	create,remove,getById,getAll,getByUserId,getAllOrdersByManager,getFilteredVehicles
+	create,remove,getById,getAll,getByUserId,getAllOrdersByManager,getFilteredVehicles,ApproveOrder,RejectOrder,CancelOrder,update,getManagersOrders
 }

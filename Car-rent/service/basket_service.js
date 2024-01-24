@@ -35,16 +35,22 @@ function addToCart(userId, cartData) {
   console.log(userCart);
 
   if (userCart != null) {
-    userCart.vehicles.push(...cartData.vehicles);
-    const priceArray = cartData.price.split(",").map(Number);
-    const totalPrice = priceArray.reduce(
-      (sum, value) => sum + value,
-      parseInt(userCart.price)
-    );
-    userCart.price = totalPrice;
-    basketRepo.update(userCart.id, userCart);
+	for(const vehicle in userCart.vehicles){
+	if(cartData.rentalId == vehicle.rentalObject && cartData.startDate == userCart.startDate && cartData.endDate == userCart.endDate){
+		userCart.vehicles.push(...cartData.vehicles);
+    	const priceArray = cartData.price.split(",").map(Number);
+    	const totalPrice = priceArray.reduce(
+      	(sum, value) => sum + value,
+      	parseInt(userCart.price)
+    	);
+    	userCart.price = totalPrice;
+    	basketRepo.update(userCart.id, userCart);
+    	return userCart
+	}else{
+		return ;
+	}
+	}
 
-    return userCart;
   } else {
     return basketRepo.create(cartData);
   }

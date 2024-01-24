@@ -20,27 +20,24 @@
     "id": 1
   },
   {
-    "username": "Mishkooo",
+    "username": "Admin",
     "password": "12345",
     "new_password": "12345",
     "name": "Dragan",
     "surname": "Miskic",
     "gender": "male",
-    "birthday": "2000-06-12",
+    "birthday": "2023-06-12",
     "lastCancellationDate": "",
     "basket": null,
-    "role": "Buyer",
+    "role": "Administrator",
     "pastRentals": null,
     "rentalObject": null,
-    "points": null,
-    "counter": null,
-    "isBlocked": false,
-    "buyerType": {
-      "name": "Bronze",
-      "discount": 10,
-      "points": 0
-    },
-    "id": 2
+    "points": 644.1616541353383,
+    "counter": 0,
+    "isBlocked": true,
+    "buyerType": {},
+    "image": "/static/user4.png",
+    "id": 1
   },
   {
     "username": "Zoran",
@@ -60,5 +57,28 @@
     "isBlocked": false,
     "buyerType": {},
     "id": 3
+  },
+  {
+    "username": "Mirjana",
+    "password": "12345",
+    "new_password": "12345",
+    "name": "Mirjana",
+    "surname": "Miskic",
+    "gender": "female",
+    "birthday": "1967-06-14",
+    "lastCancellationDate": "",
+    "basket": null,
+    "role": "Buyer",
+    "pastRentals": null,
+    "rentalObject": null,
+    "points": null,
+    "counter": null,
+    "isBlocked": false,
+    "buyerType": {
+      "name": "Bronze",
+      "discount": 10,
+      "points": 5107.2
+    },
+    "id": 4
   }
 ]

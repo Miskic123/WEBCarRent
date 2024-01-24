@@ -14,6 +14,8 @@ import BuyerOrders from './components/BuyerOrders.vue'
 import OrderDetails from './components/OrderDetails.vue'
 import MakeAnOrder from './components/MakeAnOrder.vue'
 import Basket from './components/Basket.vue'
+import ManagersOrders from './components/ManagersOrders.vue'
+import AddComment from './components/AddComment.vue'
 
 export default [
     {
@@ -81,7 +83,16 @@ export default [
     {
         path:'/basket',
         component:Basket
-    }
+    },
+    {
+        path:'/managersOrders',
+        component: ManagersOrders
+    },
+    {
+        path: '/addComment/:orderId',
+        name: 'addComment', 
+        component: AddComment,
+      }
 
 
 

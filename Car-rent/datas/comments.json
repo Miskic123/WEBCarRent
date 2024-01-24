@@ -1,11 +1,20 @@
 [
   {
-    "idUser": 8,
+    "idUser": 4,
     "idRental": 1,
-    "text": "Zadovoljna sam uslugom!",
+    "text": "Odlicno iskustvo!",
     "grade": 3,
     "isApproved": true,
     "isSeen": true,
-    "id": 1
+    "id": 2
+  },
+  {
+    "idUser": 4,
+    "idRental": 1,
+    "text": "Vrlo dobra usluga",
+    "grade": "5",
+    "isApproved": true,
+    "isSeen": true,
+    "id": 3
   }
 ]

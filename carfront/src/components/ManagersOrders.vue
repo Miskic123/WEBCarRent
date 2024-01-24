@@ -28,16 +28,20 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order.id">
-                <td>{{order.rentalObject}}</td>
+                <td>{{ order.rentalObject}}</td>
                 <td>{{ order.date }}</td>
                 <td>{{ getOrderVehicles(order.vehicles) }}</td>
                 <td>{{ order.duration }} days</td>
                 <td>{{ order.price }}</td>
                 <td>{{order.orderStatus}}</td>
                 <td>
+                <button @click="approveOrder(order.id)">Approve</button>
+                <button @click="rejectOrder(order.id)">Reject</button>
+                <input v-model="order.rejectionReason" placeholder="Rejection Reason" />
+                <button @click="submitRejection(order.id, order.rejectionReason)">Submit Rejection</button>
+                </td>
+                <td>
                     <button @click="showOrderDetails(order)">Details</button>
-                    <button v-if="isOrderInPast(order)" @click="addComment(order.rentalObject)">Add Comment</button>
-
                 </td>
                 </tr>
             </tbody>
@@ -96,7 +100,7 @@
       fetchOrders() {
         const userId = localStorage.getItem("userId");
         axios
-          .get(`http://localhost:8081/orders/getByUserId/${userId}`)
+          .get(`http://localhost:8081/orders/getByManagerId/${userId}`)
           .then((response) => {
             this.orders = response.data;
             this.orderObject = response.data.rentalObject;
@@ -116,19 +120,45 @@
             return 'N/A';
           });
       },
+      approveOrder(orderId) {
+      axios
+        .put(`http://localhost:8081/orders/approveOrder/${orderId}`)
+        .then(() => {
+          console.log(`Order ${orderId} approved successfully`);
+          this.fetchOrders(); 
+        })
+        .catch((error) => {
+          console.error(`Error approving order ${orderId}:`, error);
+        });
+        },
+        rejectOrder(orderId) {
+        axios
+            .put(`http://localhost:8081/orders/rejectOrder/${orderId}`)
+            .then(() => {
+            console.log(`Order ${orderId} rejected successfully`);
+            this.fetchOrders(); 
+            })
+            .catch((error) => {
+            console.error(`Error rejecting order ${orderId}:`, error);
+            });
+        },
+
+        submitRejection(orderId, rejectionReason) {
+        axios
+            .put(`http://localhost:8081/orders/rejectOrder/${orderId}/${rejectionReason}`)
+            .then(() => {
+            console.log(`Order ${orderId} rejected with reason: ${rejectionReason}`);
+            this.fetchOrders(); 
+            })
+            .catch((error) => {
+            console.error(`Error rejecting order ${orderId} with reason: ${rejectionReason}`, error);
+            });
+        },
+
       getOrderVehicles(vehicles) {
       return vehicles.map(vehicle => `${vehicle.brand} ${vehicle.model}`).join(', ');
       },
-      isOrderInPast(order) {
-      const orderEndDate = new Date(order.date);
-      orderEndDate.setDate(orderEndDate.getDate() + order.duration);
-      return orderEndDate < new Date();
-      },
-      addComment(orderId) {
-      this.$router.push({ name: 'addComment', params: { orderId } });
-      },
-
-
+   
       showOrderDetails(order) {
         this.selectedOrder = order;
       },

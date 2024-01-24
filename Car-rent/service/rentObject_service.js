@@ -13,6 +13,9 @@ function getById(id){
 function update(id,updatedObject){
 	return rentObjectRep.update(id,updatedObject);
 }
+function getRentComments(rentId){
+	return rentObjectRep.getAllComments(rentId);
+}
 function getFreeRentals(startDate, endDate) {
   const rentals = rentObjectRep.getAll();
 
@@ -46,5 +49,6 @@ module.exports = {
 	create,
 	getById,
 	update,
-	getFreeRentals
+	getFreeRentals,
+	getRentComments
 };

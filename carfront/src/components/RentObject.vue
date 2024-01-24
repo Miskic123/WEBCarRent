@@ -56,6 +56,15 @@
             </ul>
           </div>
         </div>
+        <div class="comment-list">
+          <h3>Comments</h3>
+          <ul>
+            <li v-for="comment in comments" :key="comment.id">
+              <p><strong>Text:</strong> {{ comment.text }}</p>
+              <p><strong>Grade:</strong> {{ comment.grade }}</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -72,6 +81,7 @@ export default {
   data() {
     return {
       objectInfo: {},
+      comments:[]
     };
   },
   mounted() {
@@ -84,6 +94,14 @@ export default {
         .get(`http://localhost:8081/rentObjects/${rentObjectId}`)
         .then((response) => {
           this.objectInfo = response.data;
+          axios
+          .get(`http://localhost:8081/rentObjects/getRentComments/comments/${rentObjectId}`)
+          .then((commentsResponse) => {
+            this.comments = commentsResponse.data;
+          })
+          .catch((commentsError) => {
+            console.error("Error fetching comments:", commentsError);
+          });
         })
         .catch((error) => {
           console.error("Error fetching object information:", error);
@@ -143,6 +161,7 @@ export default {
   top: 40px;
   line-height: 40px;
 }
+
 
 
 

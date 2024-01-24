@@ -105,7 +105,7 @@ export default {
       axios
         .post('http://localhost:8081/orders', order)
         .then(() => {
-
+          window.location.reload();
           console.log('Order placed successfully');
 
           axios

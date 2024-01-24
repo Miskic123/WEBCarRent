@@ -3,40 +3,38 @@
     "name": "AutoAris",
     "vehicles": [
       {
-        "brand": "Opel",
-        "model": "Astra",
-        "price": "1200",
-        "vehicleType": "car",
-        "rentalObject": 1,
-        "transType": "manual",
-        "fuelType": "hybrid",
-        "doorsNum": "5",
-        "peopleNum": "5",
-        "description": "ne valja",
-        "image": "/astra.jpg",
-        "status": "Available",
-        "id": 2
-      },
-      {
         "brand": "Volksvagen",
-        "model": "Golf7",
+        "model": "Golf-7",
         "price": "12000",
         "vehicleType": "car",
         "rentalObject": 1,
-        "transType": "automatic",
-        "fuelType": "diesel",
+        "transType": "manual",
+        "fuelType": "petrol",
         "doorsNum": "5",
         "peopleNum": "5",
-        "description": "odlican",
+        "description": "dobar nema greske",
         "image": "/golf7.jpg",
         "status": "Available",
-        "id": 3
+        "id": 1
+      },
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "2000",
+        "vehicleType": "truck",
+        "rentalObject": 1,
+        "transType": "automatic",
+        "fuelType": "electric",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "nema greske",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 1
       }
     ],
     "location": {
-      "adress": "Toze Markovica 28,Kovilj",
-      "latitude": 0,
-      "longitude": 0
+      "adress": "Toze Markovica 28,Kovilj"
     },
     "workHoursStart": "06:00",
     "workHoursEnd": "10:00",

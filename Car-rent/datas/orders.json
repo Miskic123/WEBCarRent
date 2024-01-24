@@ -1,3 +1,238 @@
 [
- 
+  {
+    "vehicles": [
+      {
+        "brand": "Volksvagen",
+        "model": "Golf-7",
+        "price": "12000",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "petrol",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "dobar nema greske",
+        "image": "/golf7.jpg",
+        "status": "Available",
+        "id": 1
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-24",
+    "duration": 9,
+    "price": "12000",
+    "buyer": 4,
+    "orderStatus": "Rejected",
+    "id": 1,
+    "rejectionReason": "Ne cinis mi se pogodnim"
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "1200",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "hybrid",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "ne valja",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 2
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-25",
+    "duration": 9,
+    "price": "1200",
+    "buyer": 2,
+    "orderStatus": "In progress",
+    "id": 2
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "1200",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "hybrid",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "ne valja",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 2
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-25",
+    "duration": 9,
+    "price": "1200",
+    "buyer": 2,
+    "orderStatus": "In progress",
+    "id": 3
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "1200",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "hybrid",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "ne valja",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 2
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-25",
+    "duration": 9,
+    "price": "1200",
+    "buyer": 2,
+    "orderStatus": "In progress",
+    "id": 4
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "1200",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "hybrid",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "ne valja",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 2
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-25",
+    "duration": 9,
+    "price": "1200",
+    "buyer": 2,
+    "orderStatus": "In progress",
+    "id": 5
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Opel",
+        "model": "Astra",
+        "price": "1200",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "hybrid",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "ne valja",
+        "image": "/astra.jpg",
+        "status": "Available",
+        "id": 2
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-01-25",
+    "duration": 9,
+    "price": "1200",
+    "buyer": 4,
+    "orderStatus": "In progress",
+    "id": 6
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Volksvagen",
+        "model": "Golf-7",
+        "price": "12000",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "petrol",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "dobar nema greske",
+        "image": "/golf7.jpg",
+        "status": "Available",
+        "id": 1
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-02-15",
+    "duration": 9,
+    "price": "12000",
+    "buyer": 4,
+    "orderStatus": "In progress",
+    "id": 7
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Volksvagen",
+        "model": "Golf-7",
+        "price": "12000",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "petrol",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "dobar nema greske",
+        "image": "/golf7.jpg",
+        "status": "Available",
+        "id": 1
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2024-02-15",
+    "duration": 1,
+    "price": "12000",
+    "buyer": 4,
+    "orderStatus": "In progress",
+    "id": 8
+  },
+  {
+    "vehicles": [
+      {
+        "brand": "Volksvagen",
+        "model": "Golf-7",
+        "price": "12000",
+        "vehicleType": "car",
+        "rentalObject": 1,
+        "transType": "manual",
+        "fuelType": "petrol",
+        "doorsNum": "5",
+        "peopleNum": "5",
+        "description": "dobar nema greske",
+        "image": "/golf7.jpg",
+        "status": "Available",
+        "id": 1
+      }
+    ],
+    "rentalObject": 1,
+    "date": "2023-01-24",
+    "duration": 9,
+    "price": "12000",
+    "buyer": 4,
+    "orderStatus": "Rejected",
+    "id": 9,
+    "rejectionReason": "Ne cinis mi se pogodnim"
+  }
 ]
