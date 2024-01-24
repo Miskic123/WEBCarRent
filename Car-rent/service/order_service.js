@@ -18,6 +18,9 @@ function getByUserId(userId){
 function getAllOrdersByManager(managerId){
 	return orderRep.getAllOrdersByManager(managerId);
 }
+function getFilteredVehicles(rental, startDate, endDate) {
+  return orderRep.getFreeVehicles(rental, startDate, endDate);
+}
 module.exports = {
-	create,remove,getById,getAll,getByUserId,getAllOrdersByManager
+	create,remove,getById,getAll,getByUserId,getAllOrdersByManager,getFilteredVehicles
 }

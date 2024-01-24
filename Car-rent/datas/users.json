@@ -20,13 +20,13 @@
     "id": 1
   },
   {
-    "username": "Mirjana",
+    "username": "Mishkooo",
     "password": "12345",
     "new_password": "12345",
-    "name": "Mirjana",
+    "name": "Dragan",
     "surname": "Miskic",
     "gender": "male",
-    "birthday": "1967-12-06",
+    "birthday": "2000-06-12",
     "lastCancellationDate": "",
     "basket": null,
     "role": "Buyer",
@@ -41,5 +41,24 @@
       "points": 0
     },
     "id": 2
+  },
+  {
+    "username": "Zoran",
+    "password": "12345",
+    "new_password": "12345",
+    "name": "Zoran",
+    "surname": "Miskic",
+    "gender": "male",
+    "birthday": "1967-03-07",
+    "lastCancellationDate": "",
+    "basket": null,
+    "role": "Manager",
+    "pastRentals": null,
+    "rentalObject": 1,
+    "points": null,
+    "counter": null,
+    "isBlocked": false,
+    "buyerType": {},
+    "id": 3
   }
 ]

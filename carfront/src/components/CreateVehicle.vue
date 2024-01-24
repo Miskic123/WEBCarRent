@@ -74,9 +74,6 @@
   </div>
 </template>
 
-<!-- ... (rest of the script remains unchanged) ... -->
-
-  
   <script>
   import axios from "axios";
   import NavBar from "./Navbar.vue";
@@ -98,14 +95,13 @@
           doorsNum: "",
           peopleNum: "",
           description: "",
-          image: "", // File path or URL
-          status: "Available", // Default status
+          image: "", 
+          status: "Available", 
         },
       };
     },
     methods: {
         createVehicle() {
-      // Fetch the user by ID
       const userId = localStorage.getItem("userId");
       axios
         .get(`http://localhost:8081/users/getById/${userId}`)
@@ -143,7 +139,7 @@
   
   <style scoped>
   .create-rent-object {
-    background-image: url('../assets/background.jpg'); /* Replace with your image path */
+    background-image: url('../assets/background.jpg'); 
     background-size: cover;
     background-position: center;
     height: 100vh;

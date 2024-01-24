@@ -5,6 +5,7 @@ const rentObjectController = require("./controller/rentObject_controller")
 const vehicleController = require("./controller/vehicle_controller")
 const commentController = require("./controller/comment_controller")
 const orderController = require("./controller/order_controller")
+const basketController = require("./controller/basket_controller")
 
 const app = express();
 const corsOptions = {
@@ -17,5 +18,6 @@ app.use("/rentObjects", rentObjectController);
 app.use("/vehicles", vehicleController)
 app.use("/comments",commentController)
 app.use("/orders",orderController)
+app.use("/baskets",basketController)
 
 app.listen(8081, () => console.log("Server running!"));

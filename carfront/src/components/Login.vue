@@ -55,7 +55,7 @@ export default {
       submitForm() {
         console.log(this.form.username, this.form.password);
         axios
-          .post("http://localhost:8081/users/login", this.form) // Replace with your login endpoint
+          .post("http://localhost:8081/users/login", this.form) 
           .then(response => {
             const data = response.data;
             const token = data.token;

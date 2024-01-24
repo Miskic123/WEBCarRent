@@ -12,6 +12,8 @@ import CreateVehicle from './components/CreateVehicle.vue'
 import EditVehicle from './components/EditVehicle.vue'
 import BuyerOrders from './components/BuyerOrders.vue'
 import OrderDetails from './components/OrderDetails.vue'
+import MakeAnOrder from './components/MakeAnOrder.vue'
+import Basket from './components/Basket.vue'
 
 export default [
     {
@@ -71,7 +73,16 @@ export default [
     {
         path: '/orderDetails',
         component: OrderDetails
+    },
+    {
+        path: '/makeOrder',
+        component: MakeAnOrder
+    },
+    {
+        path:'/basket',
+        component:Basket
     }
+
 
 
 ]

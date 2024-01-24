@@ -34,8 +34,7 @@
           <select v-model="rentObject.manager" required>
             <option v-for="manager in freeManagers" :key="manager.id" :value="manager.id">{{ manager.username }}</option>
           </select>
-          
-          <!-- Add a link to create a manager if the combo box is empty -->
+
           <router-link v-if="freeManagers.length === 0" to="/createManager">Create Manager</router-link>
         </div>
 
@@ -69,7 +68,7 @@ export default {
         workHoursEnd: "",
         grade: null,
         imagePath: "",
-        manager: "", // Selected manager ID
+        manager: "", 
       },
       freeManagers: [],
     };
@@ -79,18 +78,16 @@ export default {
       axios
       .post("http://localhost:8081/rentObjects", this.rentObject)
       .then((response) => {
-        const rentObject = response.data.rentObject1; // Extract the generated id from the response
+        const rentObject = response.data.rentObject1;
         const rentObjectId = rentObject.id;
         console.log(rentObject);
         console.log(rentObjectId)
         this.$toastr.s("Rent Object created successfully!");
 
-        // Update the selected manager's rentalObject field
         const selectedManager = this.freeManagers.find(manager => manager.id === this.rentObject.manager);
         if (selectedManager) {
           selectedManager.rentalObject = rentObjectId;
 
-          // Update the manager using the specified endpoint
           axios
             .put(`http://localhost:8081/users/ManagerUpdate/${selectedManager.id}`, { rentObjectId })
             .then(() => {
@@ -131,7 +128,6 @@ export default {
         this.rentObject.imagePath = `/${fileName}`;
         const reader = new FileReader();
 
-        // Read the contents of the file as a data URL
         reader.readAsDataURL(file);
       }
     },
@@ -143,9 +139,7 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add your styles here */
-</style>
+
 
 
 <style scoped>

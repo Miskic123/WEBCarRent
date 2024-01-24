@@ -17,6 +17,11 @@ router.post("/", (req, res) => {
   }
 });
 
+router.get("/:startDate/:endDate",(req,res)=>{
+  const startDate = new Date(req.params.startDate);
+  const endDate = new Date(req.params.endDate);
+  res.json(rentObjectService.getFreeRentals(startDate,endDate));
+})
 
 router.get("/AllObjects",(req,res)=>{
 	res.json(rentObjectService.getAll());
@@ -42,6 +47,15 @@ router.get("/:id",(req,res)=>{
 	const rentObject = rentObjectService.getById(id);
 	if(rentObject !=null){
 		res.status(200).json(rentObject)
+	}else {
+		res.status(404).json({error:"Object not found"})
+	}
+})
+router.get("/rentObject/Name/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10)
+	const rentObject = rentObjectService.getById(id);
+	if(rentObject !=null){
+		res.status(200).json(rentObject.name)
 	}else {
 		res.status(404).json({error:"Object not found"})
 	}

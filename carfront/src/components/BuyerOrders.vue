@@ -1,12 +1,22 @@
 <template>
     <div class="buyer-orders">
     <navbar></navbar>
+      <div class="sort-options">
+            <label>Sort by:</label>
+            <select v-model="sortOption" @change="sortOrders" class="options">
+              <option value="priceAsc">Price(Low to high)</option>
+              <option value="priceDesc">Price(High to low)</option>
+              <option value="dateAsc">Date(Low to high)</option>
+              <option value="dateDesc">Date(High to low)</option>
+            </select>
+      </div>
       <div class="orders">
         <div class="order-list">
             <h2>Buyer's Orders</h2>
             <table>
             <thead>
                 <tr>
+                <th>Rent Object</th>
                 <th>Date</th>
                 <th>Vehicles</th>
                 <th>Duration</th>
@@ -18,6 +28,7 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order.id">
+                <td>{{ getOrderRentObjectName(parseInt(order.rentalObject))}}</td>
                 <td>{{ order.date }}</td>
                 <td>{{ getOrderVehicles(order.vehicles) }}</td>
                 <td>{{ order.duration }} days</td>
@@ -51,6 +62,7 @@
         </div>
       </div>  
     </div>
+    
   </template>
   
   <script>
@@ -64,8 +76,16 @@
     data() {
       return {
         orders: [],  
-        selectedOrder: null  
+        selectedOrder: null,  
+        sortOption: "nameAsc",
+        orderObject:null
       };
+    },
+    computed:{
+      filteredRentObjects() {
+      const filteredOrders = this.orders.filter(order => this.matchesSearchQuery(order));
+      return this.sortRentObjectsArray(filteredOrders);
+    },
     },
     mounted() {
       this.fetchOrders();
@@ -77,9 +97,21 @@
           .get(`http://localhost:8081/orders/getByUserId/${userId}`)
           .then((response) => {
             this.orders = response.data;
+            this.orderObject = response.data.rentalObject;
+            console.log(this.orderObject)
           })
           .catch((error) => {
             console.error("Error fetching buyer's orders:", error);
+          });
+      },
+      getOrderRentObjectName(rentObject) {
+        return axios.get(`http://localhost:8081/rentObjects/rentObject/Name/${rentObject}`)
+          .then(response => {
+            console.log(response.data);
+      })
+          .catch((error) => {
+            console.error(`Error fetching RentObject name for ${this.orderObject}:`, error);
+            return 'N/A';
           });
       },
       getOrderVehicles(vehicles) {
@@ -87,14 +119,32 @@
       },
    
       showOrderDetails(order) {
-        // Set the selectedOrder when the "Details" button is clicked
         this.selectedOrder = order;
       },
   
       getImagePath(imagePath) {
         const normalizedPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
         return require(`@/assets/${normalizedPath}`);
-      }
+      },
+      sortOrdersArray(orders) {
+      const sortOption = this.sortOption;
+      return orders.sort((a, b) => {
+        if (sortOption === "priceAsc") {
+          return parseFloat(a.price) - parseFloat(b.price);
+        } else if (sortOption === "priceDesc") {
+          return parseFloat(b.price) - parseFloat(a.price);
+        } else if (sortOption === "dateAsc") {
+          return new Date(a.date) - new Date(b.date);
+        } else if (sortOption === "dateDesc") {
+          return new Date(b.date) - new Date(a.date);
+        }
+      });
+      },
+
+      sortOrders() {
+      this.orders = this.sortOrdersArray(this.orders);
+      },
+
     }
   };
   </script>
@@ -104,7 +154,7 @@
     background-image: url('../assets/background.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 100vh; /* Set min-height to ensure the background covers the entire screen */
+    min-height: 100vh; 
 
   
   }
@@ -122,14 +172,21 @@
   .order-details{
     color: aliceblue;
     font-size: 30px;
-    
+
   }
   
   .order-list th,td 
   {
   border: 1px solid black;
   overflow: hidden;
-}
+  }
+  .sort-options{
+    font-size: 25px;
+
+  }
+  .options{
+    size: 25px;
+  }
   .vehicle-image{
     width: 300px;
     height: 200px;

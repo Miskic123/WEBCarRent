@@ -6,22 +6,22 @@
         <form @submit.prevent="updateVehicle">
           <div class="form-group">
             <label for="brand">Brand:</label>
-            <input type="text" v-model="vehicle.brand" required>
+            <input type="text" v-model="vehicle.vehicle.brand" required>
           </div>
   
           <div class="form-group">
             <label for="model">Model:</label>
-            <input type="text" v-model="vehicle.model" required>
+            <input type="text" v-model="vehicle.vehicle.model" required>
           </div>
   
           <div class="form-group">
             <label for="price">Price:</label>
-            <input type="text" v-model="vehicle.price" required>
+            <input type="text" v-model="vehicle.vehicle.price" required>
           </div>
   
           <div class="form-group">
             <label for="vehicleType">Vehicle Type:</label>
-            <select v-model="vehicle.vehicleType" required>
+            <select v-model="vehicle.vehicle.vehicleType" required>
               <option value="car">Car</option>
               <option value="truck">Truck</option>
               <option value="mobilehome">Mobile Home</option>
@@ -30,7 +30,7 @@
   
           <div class="form-group">
             <label for="transType">Transmission Type:</label>
-            <select v-model="vehicle.transType" required>
+            <select v-model="vehicle.vehicle.transType" required>
               <option value="manual">Manual</option>
               <option value="automatic">Automatic</option>
             </select>
@@ -38,7 +38,7 @@
   
           <div class="form-group">
             <label for="fuelType">Fuel Type:</label>
-            <select v-model="vehicle.fuelType" required>
+            <select v-model="vehicle.vehicle.fuelType" required>
               <option value="diesel">Diesel</option>
               <option value="petrol">Petrol</option>
               <option value="hybrid">Hybrid</option>
@@ -48,22 +48,22 @@
   
           <div class="form-group">
             <label for="doorsNum">Number of Doors:</label>
-            <input type="text" v-model="vehicle.doorsNum" required>
+            <input type="text" v-model="vehicle.vehicle.doorsNum" required>
           </div>
   
           <div class="form-group">
             <label for="peopleNum">People Capacity:</label>
-            <input type="text" v-model="vehicle.peopleNum" required>
+            <input type="text" v-model="vehicle.vehicle.peopleNum" required>
           </div>
   
           <div class="form-group">
             <label for="description">Description:</label>
-            <textarea v-model="vehicle.description"></textarea>
+            <textarea v-model="vehicle.vehicle.description"></textarea>
           </div>
   
           <div class="form-group">
             <label for="image">Select Image:</label>
-            <input type="file" accept="image/*" @change="handleImageChange">
+            <input type="file"  accept="image/*" @change="handleImageChange">
           </div>
   
           <div class="form-group">
@@ -85,7 +85,7 @@
     data() {
       return {
         vehicle: {
-          id: "", // The vehicle ID to be updated
+          id: "", 
           brand: "",
           model: "",
           price: "",
@@ -96,25 +96,27 @@
           doorsNum: "",
           peopleNum: "",
           description: "",
-          image: "", // File path or URL
-          status: "Available", // Default status
+          image: "", 
+          status: "Available", 
         },
       };
     },
     methods: {
-      // Fetch the vehicle data to be edited
+
       fetchVehicleData() {
         const vehicleId = this.$route.params.id;
+        console.log(vehicleId)
         axios
           .get(`http://localhost:8081/vehicles/${vehicleId}`)
           .then((response) => {
             this.vehicle = response.data;
           })
+
           .catch((error) => {
             console.error("Error fetching vehicle data:", error);
           });
       },
-      // Update the vehicle data
+
       updateVehicle() {
         const vehicleId = this.$route.params.id;
         axios
@@ -139,24 +141,30 @@
     },
     mounted() {
       this.fetchVehicleData();
+      console.log(this.vehicle)
     },
   };
   </script>
   
   <style scoped>
   .create-rent-object {
-    background-image: url('../assets/background.jpg'); /* Replace with your image path */
+    background-image: url('../assets/background.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   
   .create-rent-object h2 {
     text-align: center;
-    font-size: 35px;
+    font-size: 45px;
+    font-weight: bold;
+    position: absolute;
+    color: white;
+    left: 400px;
+    bottom: 700px;
   }
   
   .create-rent-object form {

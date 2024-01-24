@@ -46,5 +46,16 @@ router.put("/update/:id",(req,res)=>{
 	}
 	
 });
+router.get("/:id",(req,res)=>{
+	const id = parseInt(req.params.id,10);
+	try{
+		const vehicle = vehicleService.getById(id);
+		res.status(200).json({vehicle});
+	}catch(error){
+		res.status(500).json({
+			error:"Failed"
+		})
+	}
+})
 
 module.exports = router;

@@ -41,5 +41,24 @@ router.get("/getAllOrdersByManagerRentObject/:managerId",(req,res)=>{
 	const managerId = parseInt(req.params.managerId,10);
 	res.json(orderService.getAllOrdersByManager(managerId));
 })
+router.get('/freeVehicles', (req, res) => {
+  try {
+    const { startTime, endTime } = req.query;
+
+    const startDate = new Date(startTime);
+    const endDate = new Date(endTime);
+
+    if (!startDate || !endDate) {
+      return res.status(400).json({ error: 'Invalid start or end time parameters.' });
+    }
+
+    const freeVehicles = orderService.getFreeVehicles(startDate, endDate);
+
+    res.json({ freeVehicles });
+  } catch (error) {
+    console.error('Error fetching free vehicles:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 module.exports = router;
